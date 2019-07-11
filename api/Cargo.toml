@@ -1,0 +1,20 @@
+[package]
+name = "api"
+version = "0.1.0"
+authors = [ "Yuki Hirai <yukihirai0505@gmail.com>" ]
+edition = "2018"
+
+[dependencies]
+http = "0.1"
+lambda_runtime = "*"
+scraper = "*"
+url = "*"
+reqwest = "*"
+serde = "*"
+serde_json = "*"
+serde_derive = "*"
+now_lambda = "*"
+
+[[bin]]
+name = "index"
+path = "/Users/yhirai/projects/i_dont_like_trade/api/index.rs"

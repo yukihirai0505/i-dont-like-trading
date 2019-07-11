@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "name": "i-dont-like-trade-api",
+    "alias": "i-dont-like-trade-api.now.sh",
+    "builds": [
+        {
+            "src": "index.rs",
+            "use": "@now/rust"
+        }
+    ]
+}
