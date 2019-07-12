@@ -1,6 +1,6 @@
 API for Native Apps
 
-for auto trade
+for auto trading
 
 1. Get Firebase AccessToken from Native apps
 2. Request User Exchange Info to Firebase by using AccessToken
@@ -10,8 +10,8 @@ for auto trade
 
 - Save User Info
 - Save Exchange Info
-- Save Auto Trade Info
-- Auto Trade
+- Save Auto Trading Info
+- Auto Trading
 
 ## DB
 
@@ -27,7 +27,7 @@ Exchange Info
 - api key
 - api secret
 
-Auto Trade Info
+Auto Trading Info
 
 - id
 - pair

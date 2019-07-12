@@ -1,1 +1,1 @@
-Auto trade app for crypto
+Auto trading app for crypto

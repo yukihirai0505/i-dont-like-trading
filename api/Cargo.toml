@@ -17,4 +17,4 @@ now_lambda = "*"
 
 [[bin]]
 name = "index"
-path = "/Users/yhirai/projects/i_dont_like_trade/api/index.rs"
+path = "index.rs"

@@ -1,7 +1,7 @@
 {
     "version": 2,
-    "name": "i-dont-like-trade-api",
-    "alias": "i-dont-like-trade-api.now.sh",
+    "name": "i-dont-like-trading-api",
+    "alias": "i-dont-like-trading-api.now.sh",
     "builds": [
         {
             "src": "index.rs",

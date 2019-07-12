@@ -1,6 +1,3 @@
-use now_lambda::lambda;
-use std::error::Error;
-
 use http::{self, Request, Response, StatusCode};
 use reqwest::{header, Client};
 use scraper::{Html, Selector};
@@ -73,8 +70,4 @@ fn handler(request: Request<()>) -> http::Result<Response<String>> {
             .status(StatusCode::BAD_REQUEST)
             .body("`selector` and `url` are required query params".to_string()),
     }
-}
-
-fn main() -> Result<(), Box<dyn Error>> {
-    Ok(lambda!(handler))
 }
