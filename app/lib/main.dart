@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/foundation.dart';
+import 'dart:async';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,30 +15,72 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: "I don't like trading"),
+      home:
+          MyHomePage(title: "I don't like trading", storage: CounterStorage()),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class CounterStorage {
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+    return directory.path;
+  }
 
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    return File('$path/counter.txt');
+  }
+
+  Future<int> readCounter() async {
+    try {
+      final file = await _localFile;
+      String contents = await file.readAsString();
+      return int.parse(contents);
+    } catch (e) {
+      // if no data return 0 for the counter
+      return 0;
+    }
+  }
+
+  Future<File> writeCounter(int counter) async {
+    final file = await _localFile;
+    return file.writeAsString('$counter');
+  }
+}
+
+class MyHomePage extends StatefulWidget {
   final String title;
+  final CounterStorage storage;
+
+  MyHomePage({Key key, this.title, @required this.storage}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _counter;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  @override
+  void initState() {
+    super.initState();
+    widget.storage.readCounter().then((int value) {
+      setState(() {
+        _counter = value;
+      });
     });
   }
 
-  void _decrementCounter() {
+  Future<File> _incrementCounter() async {
+    setState(() {
+      _counter++;
+    });
+
+    return widget.storage.writeCounter(_counter);
+  }
+
+  void _decrementCounter() async {
     setState(() {
       if (_counter > 0) {
         _counter--;
