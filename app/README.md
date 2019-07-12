@@ -1,4 +1,4 @@
-# i_dont_like_trade
+# i_dont_like_trading
 
 A new Flutter project.
 

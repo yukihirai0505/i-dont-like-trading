@@ -1,4 +1,4 @@
-package com.example.i_dont_like_trade;
+package com.example.i_dont_like_trading;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
