@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -66,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           FloatingActionButton(
             // heroTag: https://stackoverflow.com/questions/51125024/there-are-multiple-heroes-that-share-the-same-tag-within-a-subtree#answer-51359266
-            heroTag: "btn1",
+            heroTag: "incrementBtn",
             onPressed: _incrementCounter,
             tooltip: 'increment',
             child: Icon(Icons.add),
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             margin: EdgeInsets.only(bottom: 16.0),
             child: FloatingActionButton(
-              heroTag: "btn2",
+              heroTag: "decrementBtn",
               onPressed: _decrementCounter,
               tooltip: 'decrement',
               child: Icon(Icons.remove),
@@ -94,10 +95,10 @@ class SecondPage extends StatelessWidget {
         title: Text('Second Screen'),
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () => Navigator.pop(context),
-          child: Text('Go back'),
-        ),
+        child: RaisedButton.icon(
+            onPressed: () => Navigator.pop(context),
+            label: Text('Go back'),
+            icon: Icon(FontAwesomeIcons.stepBackward)),
       ),
     );
   }
